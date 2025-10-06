@@ -11,12 +11,19 @@
     }
     iframe {
       border: none;
-      width: 90%;
-      height: 50%;
+      width: 100%;
     }
   </style>
 </head>
 <body>
-  <iframe src="https://bfunifievent.syazwankamal.name.my/event/qr_checkin.php"></iframe>
+  <iframe id="checkinFrame" src="https://bfunifievent.syazwankamal.name.my/event/qr_checkin.php"></iframe>
+
+  <script>
+    const iframe = document.getElementById("checkinFrame");
+    iframe.onload = function () {
+      const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+      iframe.style.height = innerDoc.body.scrollHeight + "px";
+    };
+  </script>
 </body>
 </html>
